@@ -32,5 +32,18 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  
+}
+
+.user-info{
+  position:fixed;
+  bottom:0;
+  background-color: aquamarine;
+  width: 100%;
+  height: 10vh;
+}
+
+.image-style{
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }
