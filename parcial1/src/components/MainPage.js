@@ -8,7 +8,7 @@ import Card from "react-bootstrap/Card";
 
 const MainPage = () =>{
     const [userInfo, setUserInfo] = useState("")
-    const [trainingsInfo, setTrainingsInfo] = useState("")
+    const [trainingsInfo, setTrainingsInfo] = useState([])
     const URL_userInfo = "https://my.api.mockaroo.com/parcial_schema.json?key=3205f040"
     const URL_trainings = "https://my.api.mockaroo.com/parcial_training_details.json?key=3205f040"
     
@@ -27,9 +27,9 @@ const MainPage = () =>{
             <Row>
                 <Col>
                     <h1>Cycling</h1>
-                    <Row>
-
-                    </Row>
+                    <Card>
+                        {trainingsInfo.map(data=><Card.Body>{data.city}</Card.Body>)}
+                    </Card>
                 </Col>
                 <Col>
                     <h1>Running</h1>
