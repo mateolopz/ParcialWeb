@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../App.css';
 import Card from "react-bootstrap/Card";
+import {FormattedMessage} from 'react-intl';
 
 const MainPage = () =>{
     const [userInfo, setUserInfo] = useState("")
@@ -19,24 +20,31 @@ const MainPage = () =>{
 
     useEffect(()=>{
         fetch(URL_trainings).then(data => data.json()).then(data => {
+            console.log(data)
             setTrainingsInfo(data)})
+            
     }, []);
 
     return (
         <Container fluid>
             <Row>
                 <Col>
-                    <h1>Cycling</h1>
+                    <h1><FormattedMessage id="Cycling"/></h1>
                     <Card>
                         {trainingsInfo.map(data=><Card.Body>{data.city}</Card.Body>)}
                     </Card>
                 </Col>
                 <Col>
-                    <h1>Running</h1>
+                    <h1><FormattedMessage id="Running"/></h1>
                 </Col>
                 <Col>
-                    <h1>Swimming</h1>
+                    <h1><FormattedMessage id="Swimming"/></h1>
                 </Col>
+                <select>
+                    <option value="fruit">Fruit</option>
+                    <option value="vegetable">Vegetable</option>
+                    <option value="meat">Meat</option>
+                </select>
             </Row>
             <Row className="user-info">
                 <Col>
@@ -46,13 +54,13 @@ const MainPage = () =>{
                     <text>{userInfo.full_name}</text>
                 </Col>
                 <Col>
-                    <text>PB Running: {userInfo.pb_run}</text>
+                    <text>PB <FormattedMessage id="Running"/>: {userInfo.pb_run}</text>
                 </Col>
                 <Col>
-                    <text>PB Swimming: {userInfo.pb_swim}</text>
+                    <text>PB <FormattedMessage id="Swimming"/>: {userInfo.pb_swim}</text>
                 </Col>
                 <Col>
-                    <text>PB Biking: {userInfo.pb_biking}</text>
+                    <text>PB <FormattedMessage id="Cycling"/>: {userInfo.pb_biking}</text>
                 </Col>                                
             </Row>
         </Container>

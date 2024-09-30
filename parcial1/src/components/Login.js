@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../App.css';
+import {FormattedMessage} from 'react-intl';
 
 const Login = () =>{
     const [email, setEmail] = useState("")
@@ -25,10 +26,10 @@ const Login = () =>{
     return(
         <Container fluid className="login">
             <Col className="login" style={{marginTop:"15%"}}>
-                <text style={{alignContent:"left"}}><strong>Log in</strong></text>
-                <text>Email</text>
+                <text style={{alignContent:"left"}}><strong><FormattedMessage id="Log in"/></strong></text>
+                <text><FormattedMessage id="Email"/></text>
                 <input onChange= {(event)=> setEmail(event.target.value)}></input>
-                <text>Password</text>
+                <text><FormattedMessage id="Password"/></text>
                 <input onChange= {(event)=> setPassword(event.target.value)}></input>
                 <input type="submit" value="Log in" onClick={()=>send_alert()}></input>
             </Col>
